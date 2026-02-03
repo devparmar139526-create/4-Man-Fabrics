@@ -39,66 +39,66 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5]">
+    <motion.div 
+      className="min-h-screen bg-heritage-ivory"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A]">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#C5A059] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#C5A059] rounded-full blur-3xl"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1D4E38] py-20 md:py-0">
+        {/* Diagonal Stripes Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(45deg, rgba(212, 196, 168, 0.3) 0px, rgba(212, 196, 168, 0.3) 2px, transparent 2px, transparent 30px)' }}></div>
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="inline-block"
+              className="text-heritage-champagne/60 text-xs tracking-[0.3em] uppercase mb-12 md:mb-20"
             >
-              <p className="text-[#C5A059] text-sm md:text-base tracking-[0.3em] font-medium mb-4">
-                SINCE 1987
-              </p>
-            </motion.div>
+              Since 1987
+            </motion.p>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-thin text-white mb-10 md:mb-16 leading-tight sm:leading-none">
               Elevate Your Elegance
-              <br />
-              <span className="text-[#C5A059]">Beyond Imagination</span>
             </h1>
             
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-gray-300"
+              className="text-base text-white/50 font-light mb-20 leading-relaxed tracking-wide"
             >
-              Where artistry meets precision. Experience the pinnacle of bespoke tailoring with premium fabrics, 
-              masterful craftsmanship, and unparalleled attention to detail.
+              Where artistry meets precision
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
+              className="flex items-center justify-center gap-8"
             >
               <Link 
                 to="/wardrobe"
-                className="px-10 py-4 bg-[#C5A059] text-white text-lg font-medium tracking-wide rounded hover:bg-[#B39049] transition-all transform hover:scale-105 shadow-xl flex items-center gap-2 group"
+                className="text-xs text-white/80 tracking-[0.2em] uppercase hover:text-white transition-all duration-500 border-b border-transparent hover:border-white pb-1"
               >
-                Explore Collection
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Explore
               </Link>
+              <div className="w-px h-4 bg-white/20"></div>
               <Link 
                 to="/contact"
-                className="px-10 py-4 border-2 border-white/30 text-white text-lg font-medium tracking-wide rounded hover:bg-white/10 transition-all backdrop-blur-sm"
+                className="text-xs text-white/80 tracking-[0.2em] uppercase hover:text-white transition-all duration-500 border-b border-transparent hover:border-white pb-1"
               >
-                Book Consultation
+                Contact
               </Link>
             </motion.div>
 
@@ -106,52 +106,36 @@ const Home = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="flex items-center justify-center gap-12 mt-16 text-sm"
+              className="flex items-center justify-center gap-6 sm:gap-12 mt-12 sm:mt-16 text-sm px-4"
             >
-              <div>
-                <p className="text-4xl font-serif font-bold text-[#C5A059]">35+</p>
-                <p className="text-gray-400 mt-1">Years Excellence</p>
+              <div className="text-center">
+                <p className="text-3xl sm:text-4xl font-serif font-light text-heritage-champagne">35+</p>
+                <p className="text-heritage-ivory/70 mt-1 text-xs sm:text-sm">Years Excellence</p>
               </div>
-              <div className="w-px h-12 bg-white/20"></div>
-              <div>
-                <p className="text-4xl font-serif font-bold text-[#C5A059]">4000+</p>
-                <p className="text-gray-400 mt-1">Fabric Options</p>
+              <div className="w-px h-12 bg-heritage-champagne/20"></div>
+              <div className="text-center">
+                <p className="text-3xl sm:text-4xl font-serif font-light text-heritage-champagne">4000+</p>
+                <p className="text-heritage-ivory/70 mt-1 text-xs sm:text-sm">Fabric Options</p>
               </div>
-              <div className="w-px h-12 bg-white/20"></div>
-              <div>
-                <p className="text-4xl font-serif font-bold text-[#C5A059]">∞</p>
-                <p className="text-gray-400 mt-1">Possibilities</p>
+              <div className="w-px h-12 bg-heritage-champagne/20"></div>
+              <div className="text-center">
+                <p className="text-3xl sm:text-4xl font-serif font-light text-heritage-champagne">150+</p>
+                <p className="text-heritage-ivory/70 mt-1 text-xs sm:text-sm">Possibilities</p>
               </div>
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="w-1.5 h-1.5 bg-[#C5A059] rounded-full"
-            ></motion.div>
-          </div>
-        </motion.div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-white">
+      <section className="py-32 bg-heritage-sage">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <p className="text-[#C5A059] text-sm tracking-[0.3em] font-medium mb-4">OUR PROMISE</p>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-[#1A1A1A]">
-              Commitment to Excellence
+            <p className="text-heritage-champagne text-sm tracking-[0.3em] font-medium mb-4">OUR PROMISE</p>
+            <h2 className="text-4xl md:text-5xl font-serif font-light mb-4 text-heritage-forest tracking-tight">
+              Our Commitment to Excellence
             </h2>
-            <div className="w-24 h-1 bg-[#C5A059] mx-auto"></div>
+            <div className="w-24 h-1 bg-heritage-champagne mx-auto"></div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -182,14 +166,15 @@ const Home = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="bg-[#F5F5F5] p-8 rounded-lg text-center hover:shadow-2xl transition-all duration-300 group border border-transparent hover:border-[#C5A059]/20"
+                transition={{ delay: index * 0.15, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -10 }}
+                className="bg-heritage-ivory p-10 border border-heritage-stone text-center transition-all duration-700 ease-in-out group hover:border-heritage-champagne"
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#C5A059] to-[#B39049] rounded-full mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <feature.icon className="text-white" size={36} />
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-heritage-champagne to-heritage-forest rounded-full mb-6 group-hover:scale-110 transition-transform duration-700">
+                  <feature.icon className="text-heritage-ivory" size={36} />
                 </div>
-                <h3 className="text-xl font-serif font-bold mb-4 text-[#1A1A1A]">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-serif font-light mb-4 text-[#1D4E38] tracking-tight">{feature.title}</h3>
+                <p className="text-[#1D4E38] leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -197,7 +182,7 @@ const Home = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-24 bg-[#F5F5F5]">
+      <section className="py-32 bg-heritage-ivory">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -208,13 +193,15 @@ const Home = () => {
               className="relative"
             >
               <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
-                <img
+                <motion.img
                   src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80"
                   alt="Craftsmanship"
                   className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
                 />
               </div>
-              <div className="absolute -bottom-8 -right-8 w-64 h-64 border-4 border-[#C5A059] rounded-lg -z-10"></div>
+              <div className="absolute -bottom-8 -right-8 w-64 h-64 border-4 border-heritage-champagne rounded-lg -z-10"></div>
             </motion.div>
 
             <motion.div
@@ -225,17 +212,17 @@ const Home = () => {
               className="space-y-6"
             >
               <div>
-                <p className="text-[#C5A059] text-sm tracking-[0.3em] font-medium mb-4">SINCE 1987</p>
-                <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-[#1A1A1A]">
+                <p className="text-heritage-champagne text-sm tracking-[0.3em] font-medium mb-4">SINCE 1987</p>
+                <h2 className="text-4xl md:text-5xl font-serif font-light mb-6 text-[#1D4E38] tracking-tight">
                   Crafting Excellence<br />
-                  <span className="text-[#C5A059]">For Generations</span>
+                  <span className="text-heritage-champagne">For Generations</span>
                 </h2>
-                <div className="w-24 h-1 bg-[#C5A059]"></div>
+                <div className="w-24 h-1 bg-heritage-champagne"></div>
               </div>
 
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+              <div className="space-y-4 text-[#1D4E38] leading-relaxed">
                 <p className="text-lg">
-                  For over three decades, <strong>Arihant 4Man</strong> has been synonymous with premium fabrics 
+                  For over three decades, <strong>4-Man-Fabrics</strong> has been synonymous with premium fabrics 
                   and impeccable tailoring. What began as a small fabric shop in the heart of Rajkot has evolved 
                   into a distinguished destination for discerning gentlemen.
                 </p>
@@ -248,7 +235,7 @@ const Home = () => {
               <div className="pt-6">
                 <Link 
                   to="/about"
-                  className="inline-flex items-center gap-2 px-8 py-3 border-2 border-[#C5A059] text-[#C5A059] font-medium tracking-wide rounded hover:bg-[#C5A059] hover:text-white transition-all group"
+                  className="inline-flex items-center gap-2 px-8 py-3 border-2 border-heritage-forest text-heritage-forest font-medium tracking-wide rounded hover:bg-heritage-forest hover:text-heritage-ivory hover:border-heritage-champagne transition-all duration-500 ease-in-out group"
                 >
                   Discover Our Story
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -260,14 +247,14 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-[#1A1A1A] text-white">
+      <section className="py-32 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <p className="text-[#C5A059] text-sm tracking-[0.3em] font-medium mb-4">TESTIMONIALS</p>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-              What Our <span className="text-[#C5A059]">Clients</span> Say
+            <p className="text-heritage-champagne text-sm tracking-[0.3em] font-medium mb-4">TESTIMONIALS</p>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-black">
+              What Our <span className="text-heritage-champagne">Clients</span> Say
             </h2>
-            <div className="w-24 h-1 bg-[#C5A059] mx-auto"></div>
+            <div className="w-24 h-1 bg-heritage-champagne mx-auto"></div>
           </motion.div>
 
           <div className="relative">
@@ -277,85 +264,91 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-lg border border-white/10"
+              className="bg-[#F0F7F4] p-8 md:p-12 rounded-lg border border-[#D4C4A8]"
             >
               <div className="flex justify-center mb-6">
                 {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                  <span key={i} className="text-[#C5A059] text-2xl">★</span>
+                  <span key={i} className="text-heritage-champagne text-2xl">★</span>
                 ))}
               </div>
-              <p className="text-xl md:text-2xl text-center leading-relaxed mb-8 text-gray-200 font-serif italic">
+              <p className="text-xl md:text-2xl text-center leading-relaxed mb-8 text-black font-serif italic">
                 "{testimonials[currentTestimonial].text}"
               </p>
-              <p className="text-center text-[#C5A059] font-medium tracking-wide">
+              <p className="text-center text-black font-medium tracking-wide">
                 — {testimonials[currentTestimonial].author}
               </p>
             </motion.div>
 
             <div className="flex justify-center items-center mt-8 space-x-4">
-              <button
+              <motion.button
                 onClick={() => setCurrentTestimonial((prev) => 
                   prev === 0 ? testimonials.length - 1 : prev - 1
                 )}
-                className="p-3 bg-white/10 hover:bg-[#C5A059] rounded-full transition-all"
+                className="p-3 bg-[#D4C4A8] hover:bg-heritage-champagne rounded-full transition-all"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
-                <ChevronLeft size={24} />
-              </button>
+                <ChevronLeft size={24} className="text-black" />
+              </motion.button>
               
               <div className="flex space-x-2">
                 {testimonials.map((_, index) => (
-                  <button
+                  <motion.button
                     key={index}
                     onClick={() => setCurrentTestimonial(index)}
                     className={`h-2 rounded-full transition-all ${
-                      index === currentTestimonial ? 'bg-[#C5A059] w-8' : 'bg-white/30 w-2'
+                      index === currentTestimonial ? 'bg-heritage-champagne w-8' : 'bg-[#D4C4A8] w-2'
                     }`}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.8 }}
                   />
                 ))}
               </div>
 
-              <button
+              <motion.button
                 onClick={() => setCurrentTestimonial((prev) => 
                   (prev + 1) % testimonials.length
                 )}
-                className="p-3 bg-white/10 hover:bg-[#C5A059] rounded-full transition-all"
+                className="p-3 bg-[#D4C4A8] hover:bg-heritage-champagne rounded-full transition-all"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
-                <ChevronRight size={24} />
-              </button>
+                <ChevronRight size={24} className="text-black" />
+              </motion.button>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white">
+      <section className="py-32 bg-heritage-sage">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight text-[#1A1A1A]">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight text-[#1D4E38]">
               Ready to Elevate<br />
-              <span className="text-[#C5A059]">Your Wardrobe?</span>
+              <span className="text-heritage-champagne">Your Wardrobe?</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-[#1D4E38] max-w-2xl mx-auto leading-relaxed">
               Visit our store for personalized service and discover the perfect fabrics 
               for your bespoke tailoring needs.
             </p>
             <Link 
               to="/contact"
-              className="inline-flex items-center gap-2 px-12 py-4 bg-[#C5A059] text-white text-lg font-medium tracking-wide rounded hover:bg-[#B39049] transition-all transform hover:scale-105 shadow-xl group"
+              className="inline-flex items-center gap-2 px-12 py-4 bg-heritage-forest text-heritage-ivory text-lg font-medium tracking-wide rounded border border-heritage-forest hover:bg-transparent hover:border-heritage-champagne hover:text-heritage-champagne transition-all duration-500 ease-in-out transform hover:scale-[1.02] group"
             >
               Contact Us Today
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-500" />
             </Link>
           </motion.div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 

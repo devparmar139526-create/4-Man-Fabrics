@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Award, Target, Eye, Sparkles } from 'lucide-react';
+import { Award, Target, Eye, Sparkles, Shirt, ShoppingBag } from 'lucide-react';
 
 const About = () => {
   const fadeInUp = {
@@ -11,26 +12,46 @@ const About = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5]">
+    <motion.div 
+      className="min-h-screen bg-heritage-ivory"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#1A1A1A] text-white py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-[#C5A059] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#C5A059] rounded-full blur-3xl"></div>
+      <section className="relative bg-[#1D4E38] text-heritage-ivory py-20 md:py-32 overflow-hidden min-h-[calc(100vh-80px)] md:min-h-0 flex items-center">
+        {/* Vertical Bars Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'repeating-linear-gradient(90deg, rgba(212, 196, 168, 0.25) 0px, rgba(212, 196, 168, 0.25) 2px, transparent 2px, transparent 40px)' }}></div>
         </div>
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-6">Our Story</h1>
-            <h2 className="text-3xl mb-4">About <span className="text-blue-400">4man</span></h2>
-            <p className="text-xl mb-6">Legacy of Excellence</p>
-            <p className="text-lg mb-8">Discover the journey of craftsmanship and tradition that has made us a trusted name in premium fabrics and bespoke tailoring for over three decades.</p>
-            <div className="flex gap-4">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition">
-                Explore Collection
-              </button>
-              <button className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-3 rounded-lg font-semibold transition">
-                Contact Us
-              </button>
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto text-center">
+            <p className="text-heritage-champagne/60 text-xs tracking-[0.3em] uppercase mb-12 md:mb-20">Our Story</p>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-thin text-white mb-10 md:mb-16 leading-none px-4">
+              About 4 Man Fabrics
+            </h1>
+            <p className="text-base text-white/50 font-light mb-20 leading-relaxed tracking-wide max-w-2xl mx-auto">
+              Three decades of excellence in premium fabrics
+            </p>
+            <div className="flex items-center justify-center gap-8">
+              <Link to="/wardrobe">
+                <motion.button 
+                  className="text-xs text-white/80 tracking-[0.2em] uppercase hover:text-white transition-all duration-500 border-b border-transparent hover:border-white pb-1"
+                  whileHover={{ y: -2 }}
+                >
+                  Our Collection
+                </motion.button>
+              </Link>
+              <div className="w-px h-4 bg-white/20"></div>
+              <Link to="/contact">
+                <motion.button 
+                  className="text-xs text-white/80 tracking-[0.2em] uppercase hover:text-white transition-all duration-500 border-b border-transparent hover:border-white pb-1"
+                  whileHover={{ y: -2 }}
+                >
+                  Contact
+                </motion.button>
+              </Link>
             </div>
           </div>
         </div>
@@ -39,19 +60,31 @@ const About = () => {
       {/* Years of Excellence */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-6xl font-bold text-blue-600 mb-2">35+</h2>
-            <p className="text-2xl text-gray-700">Years of Excellence</p>
-          </div>
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h2 className="text-6xl font-bold text-heritage-champagne mb-2">35+</h2>
+            <p className="text-2xl text-black">Years of Excellence</p>
+          </motion.div>
         </div>
       </section>
 
       {/* Story Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8 text-center">A Legacy of Excellence</h2>
-            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h2 className="text-4xl font-bold mb-8 text-center text-black">A Legacy of Excellence</h2>
+            <div className="space-y-6 text-lg text-black leading-relaxed">
               <p>
                 Founded in 1987, 4man began as a small fabric store with a big vision: to provide customers with the finest quality fabrics and tailoring services. The name "4man" represents our commitment to serving men of all ages and preferences with premium wardrobe solutions.
               </p>
@@ -62,54 +95,73 @@ const About = () => {
                 Today, 4man stands as a testament to our founders' vision, serving generations of customers who value quality, craftsmanship, and personalized service.
               </p>
               <div className="text-center mt-8">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition">
-                  Explore Our Collection
-                </button>
+                <Link to="/wardrobe">
+                  <motion.button 
+                    className="bg-heritage-forest text-heritage-ivory px-8 py-3 rounded-lg font-semibold transition-all duration-500 ease-in-out border border-heritage-forest hover:bg-transparent hover:border-heritage-champagne hover:text-heritage-champagne"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Explore Our Collection
+                  </motion.button>
+                </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Established Badge */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <div className="inline-block border-4 border-gray-800 rounded-full p-8">
-            <p className="text-4xl font-bold text-gray-800">1987</p>
-            <p className="text-xl text-gray-600 mt-2">Established</p>
-            <p className="text-lg text-gray-600 mt-1">Heritage Brand</p>
-          </div>
+          <motion.div 
+            className="inline-block relative"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            {/* Outer ring */}
+            <div className="absolute inset-0 rounded-full border-2 border-black animate-pulse"></div>
+            {/* Middle ring */}
+            <div className="absolute inset-2 rounded-full border border-black/50"></div>
+            {/* Inner content */}
+            <div className="relative border-4 border-black rounded-full p-8 bg-white">
+              <p className="text-4xl font-bold text-black">1987</p>
+              <p className="text-xl text-black mt-2">Established</p>
+              <p className="text-lg text-black mt-1">Heritage Brand</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Our Purpose</h2>
-            <p className="text-xl text-gray-600">Mission & Vision</p>
-            <p className="text-lg text-gray-500 mt-2">Guiding principles that drive our commitment to excellence and innovation in premium tailoring.</p>
+            <h2 className="text-4xl font-bold mb-4 text-black">Our Purpose</h2>
+            <p className="text-xl text-black">Mission & Vision</p>
+            <p className="text-lg text-black mt-2">Guiding principles that drive our commitment to excellence and innovation in premium tailoring.</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Mission */}
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold mb-4 text-blue-600">Our Mission</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-white p-8 rounded-lg border border-[#D4C4A8] hover:border-[#D4C4A8] transition-all duration-500">
+              <h3 className="text-2xl font-bold mb-4 text-heritage-champagne">Our Mission</h3>
+              <p className="text-black mb-4">
                 To provide exceptional fabrics and tailoring services that exceed customer expectations, helping individuals express their personal style with confidence and distinction.
               </p>
-              <p className="text-gray-700">
+              <p className="text-black">
                 We believe in the transformative power of well-crafted clothing and are committed to making premium quality accessible to our discerning clientele.
               </p>
             </div>
             
             {/* Vision */}
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold mb-4 text-blue-600">Our Vision</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-white p-8 rounded-lg border border-[#D4C4A8] hover:border-[#D4C4A8] transition-all duration-500">
+              <h3 className="text-2xl font-bold mb-4 text-heritage-champagne">Our Vision</h3>
+              <p className="text-black mb-4">
                 To be recognized as the premier destination for superior fabrics and bespoke tailoring solutions, setting industry standards for quality, creativity, and customer satisfaction.
               </p>
-              <p className="text-gray-700">
+              <p className="text-black">
                 We aspire to preserve traditional craftsmanship while embracing innovation, ensuring that the 4man legacy continues to thrive for generations to come.
               </p>
             </div>
@@ -118,92 +170,77 @@ const About = () => {
       </section>
 
       {/* Founders Section */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Our Founders</h2>
-            <p className="text-xl text-gray-600">The Vision Behind 4man</p>
-            <p className="text-lg text-gray-500 mt-2">Meet the passionate individuals who built 4man into the premium fashion brand it is today.</p>
+            <h2 className="text-4xl font-bold mb-4 text-black">Our Founders</h2>
+            <p className="text-xl text-black">The Vision Behind 4man</p>
+            <p className="text-lg text-black mt-2">Meet the passionate individuals who built 4man into the premium fashion brand it is today.</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Ankur Jain */}
-            <div className="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
-              <div className="h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="w-32 h-32 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-5xl">👔</span>
+            <div className="bg-white rounded-lg overflow-hidden border border-[#D4C4A8] hover:border-[#D4C4A8] transition-all duration-500">
+              <div className="h-64 bg-white flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-white border-2 border-black rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Shirt size={48} className="text-black" />
                   </div>
-                  <p className="text-lg font-semibold">Ankur Jain</p>
+                  <p className="text-lg font-semibold text-black">Ankur Jain</p>
                 </div>
               </div>
               <div className="p-6">
                 <div className="flex justify-between mb-4">
-                  <span className="text-blue-600 font-semibold">Founder</span>
-                  <span className="text-gray-600">Since 1987</span>
+                  <span className="text-[#1D4E38] font-semibold">Founder</span>
+                  <span className="text-black">Since 1987</span>
                 </div>
-                <h4 className="text-xl font-bold mb-3">Ankur Jain ~ Founder</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  Mr. Ankur Jain is the founder of 4man, a men's fashion brand with a decade of legacy. The journey started by establishing a small showroom with a big vision. It is a standard company with its registered trademark.
-                </p>
-                <p className="text-gray-700 text-sm leading-relaxed mt-3">
-                  4man provides the complete wardrobe solution for a discerning Indian male. At the same time Mr. Ankur Jain is working on envisioning the brand to evolve as a unique and compelling lifestyle brand with its offerings going beyond wardrobe solutions.
-                </p>
-                <p className="text-gray-700 text-sm leading-relaxed mt-3">
-                  Having started our transformation journey a few years back, we are today at an inflection point where we are investing to build 4man as the complete wardrobe solution for a discerning Indian male.
+                <h4 className="text-xl font-bold mb-3 text-black">Ankur Jain</h4>
+                <p className="text-black text-sm leading-relaxed">
+                  Founder of 4man, a men's fashion brand with over three decades of legacy. Started with a small showroom and a big vision to provide complete wardrobe solutions for the discerning Indian male.
                 </p>
               </div>
             </div>
 
             {/* Shilpa Jain */}
-            <div className="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
-              <div className="h-64 bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="w-32 h-32 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-5xl">👗</span>
+            <div className="bg-white rounded-lg overflow-hidden border border-[#D4C4A8] hover:border-[#D4C4A8] transition-all duration-500">
+              <div className="h-64 bg-white flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-white border-2 border-black rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <ShoppingBag size={48} className="text-black" />
                   </div>
-                  <p className="text-lg font-semibold">Shilpa Jain</p>
+                  <p className="text-lg font-semibold text-black">Shilpa Jain</p>
                 </div>
               </div>
               <div className="p-6">
                 <div className="flex justify-between mb-4">
-                  <span className="text-purple-600 font-semibold">Co-Founder</span>
-                  <span className="text-gray-600">Team Leader</span>
+                  <span className="text-[#1D4E38] font-semibold">Co-Founder</span>
+                  <span className="text-black">Team Leader</span>
                 </div>
-                <h4 className="text-xl font-bold mb-3">Shilpa Jain ~ Co-founder</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  Shilpa Jain, sister of Ankur Jain and assistant founder of 4man, has won the confidence of our valued customers by offering them premium high quality fabrics at the best prices.
-                </p>
-                <p className="text-gray-700 text-sm leading-relaxed mt-3">
-                  A critical pillar in supporting 4man with a youthful team that forms its core, she leads the talented workforce to maintain healthy work cultures, competitive standards and consistent quality by always being ready to learn and grow.
+                <h4 className="text-xl font-bold mb-3 text-black">Shilpa Jain</h4>
+                <p className="text-black text-sm leading-relaxed">
+                  Sister of Ankur Jain and co-founder of 4man. She has won customer confidence by offering premium quality fabrics at the best prices, while leading the talented workforce to maintain excellence and consistent quality.
                 </p>
               </div>
             </div>
 
             {/* Deepti Jain */}
-            <div className="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
-              <div className="h-64 bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="w-32 h-32 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-5xl">✨</span>
+            <div className="bg-white rounded-lg overflow-hidden border border-[#D4C4A8] hover:border-[#D4C4A8] transition-all duration-500">
+              <div className="h-64 bg-white flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-white border-2 border-black rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <Sparkles size={48} className="text-black" />
                   </div>
-                  <p className="text-lg font-semibold">Deepti Jain</p>
+                  <p className="text-lg font-semibold text-black">Deepti Jain</p>
                 </div>
               </div>
               <div className="p-6">
                 <div className="flex justify-between mb-4">
-                  <span className="text-pink-600 font-semibold">Co-Founder</span>
-                  <span className="text-gray-600">Innovation Lead</span>
+                  <span className="text-[#1D4E38] font-semibold">Co-Founder</span>
+                  <span className="text-black">Innovation Lead</span>
                 </div>
-                <h4 className="text-xl font-bold mb-3">Deepti Jain ~ Co-founder</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  Deepti Jain, co-founder of 4man, brings a fresh perspective and innovative vision to the brand. Her dedication to excellence and keen eye for detail have been instrumental in shaping 4man's commitment to quality and customer satisfaction.
-                </p>
-                <p className="text-gray-700 text-sm leading-relaxed mt-3">
-                  With a strong focus on modern trends and timeless elegance, Deepti plays a pivotal role in curating exclusive fabric collections and ensuring that every customer receives a personalized experience. Her passion for fashion and entrepreneurial spirit continues to drive 4man forward.
-                </p>
-                <p className="text-gray-700 text-sm leading-relaxed mt-3">
-                  She believes in creating lasting relationships with customers by delivering not just products, but experiences that celebrate style, sophistication, and individuality.
+                <h4 className="text-xl font-bold mb-3 text-black">Deepti Jain</h4>
+                <p className="text-black text-sm leading-relaxed">
+                  Co-founder bringing fresh perspective and innovative vision to the brand. She curates exclusive fabric collections and ensures personalized customer experiences through modern trends and timeless elegance.
                 </p>
               </div>
             </div>
@@ -212,21 +249,33 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-24 bg-[#1D4E38] text-heritage-ivory">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Experience the 4man Difference</h2>
-          <p className="text-lg mb-8">Visit our store to explore our premium fabric collection or schedule a consultation for your custom tailoring needs.</p>
+          <p className="text-lg mb-8 text-heritage-ivory/80">Visit our store to explore our premium fabric collection or schedule a consultation for your custom tailoring needs.</p>
           <div className="flex gap-4 justify-center">
-            <button className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-3 rounded-lg font-semibold transition">
-              Contact Us
-            </button>
-            <button className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-semibold transition border-2 border-white">
-              Explore Our Collection
-            </button>
+            <Link to="/contact">
+              <motion.button 
+                className="bg-heritage-ivory text-heritage-forest px-8 py-3 rounded-lg font-semibold transition-all duration-500 hover:bg-transparent hover:border hover:border-heritage-ivory hover:text-heritage-ivory"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Contact Us
+              </motion.button>
+            </Link>
+            <Link to="/wardrobe">
+              <motion.button 
+                className="bg-heritage-champagne text-heritage-forest px-8 py-3 rounded-lg font-semibold transition-all duration-500 border-2 border-heritage-champagne hover:bg-transparent hover:text-heritage-champagne"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Explore Our Collection
+              </motion.button>
+            </Link>
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 

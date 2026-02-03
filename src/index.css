@@ -1,8 +1,8 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&family=Lato:wght@300;400;700;900&display=swap');
 
 @theme {
-  --font-sans: 'Lato', sans-serif;
+  --font-sans: 'Roboto', 'Lato', sans-serif;
   --font-serif: 'Playfair Display', serif;
 }
 
@@ -10,10 +10,28 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FAFAF7;
+  color: #111111;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
+  color: #000000;
+  font-weight: 300; /* Luxury brands use light weights */
+  letter-spacing: -0.02em; /* Tighter tracking for elegance */
+}
+
+/* Refined letter-spacing for labels */
+.tracking-wide {
+  letter-spacing: 0.2em;
+}
+
+.tracking-luxury {
+  letter-spacing: 0.15em;
+}
+
+.tracking-ultra {
+  letter-spacing: 0.25em;
 }
 
 /* Custom scrollbar */
@@ -22,19 +40,336 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f5f5;
+  background: #FAFAF7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C5A059;
+  background: #C9BCA1;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B39049;
+  background: #1A4536;
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* ========================================
+   MOBILE OPTIMIZATION STYLES
+   ======================================== */
+
+/* Viewport height fix for mobile browsers (100vh issue) */
+:root {
+  --vh: 1vh;
+}
+
+/* Safe area insets for notched devices (iPhone X, etc.) */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-top: 0; /* Remove top padding to allow full-screen hero */
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  /* Apply safe area to navbar instead */
+  nav {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Prevent text overflow */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Ensure all sections and containers respect viewport width */
+section, div {
+  max-width: 100%;
+}
+
+/* Touch-friendly tap targets (minimum 44px as per Apple guidelines) */
+button,
+a,
+input,
+textarea,
+select {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Disable tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Smooth font rendering on mobile */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile typography adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem; /* 40px */
+    line-height: 1.1;
+  }
+  
+  h2 {
+    font-size: 2rem; /* 32px */
+    line-height: 1.2;
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.3;
+  }
+  
+  p {
+    font-size: 1rem; /* 16px */
+    line-height: 1.6;
+  }
+  
+  /* Adjust padding for mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Extra small devices optimization */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem; /* 32px */
+  }
+  
+  h2 {
+    font-size: 1.75rem; /* 28px */
+  }
+}
+
+/* Touch interaction improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  button:hover,
+  a:hover {
+    transform: none;
+  }
+  
+  /* Add active states for touch feedback */
+  button:active,
+  a:active {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+}
+
+/* Optimize images for mobile */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile-friendly form inputs */
+@media (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+  }
+}
+
+/* Fix for sticky positioning on mobile Safari */
+@supports (-webkit-overflow-scrolling: touch) {
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+/* Prevent zoom on double-tap */
+button,
+a {
+  touch-action: manipulation;
+}
+
+/* Mobile navigation fixes */
+@media (max-width: 1024px) {
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+}
+
+/* Hero section mobile optimization */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: calc(var(--vh, 1vh) * 100);
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+}
+
+/* Grid responsiveness */
+@media (max-width: 768px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4,
+  .md\\:grid-cols-2,
+  .md\\:grid-cols-3,
+  .lg\\:grid-cols-4 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* Card hover effects - disable on touch */
+@media (hover: none) {
+  .card-hover-effect {
+    transform: none !important;
+  }
+}
+
+/* Mobile menu animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Performance optimizations */
+* {
+  will-change: auto;
+}
+
+/* Only apply will-change to animating elements */
+.animating {
+  will-change: transform, opacity;
+}
+
+/* Remove after animation */
+.animation-complete {
+  will-change: auto;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Loading states for mobile */
+.skeleton-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Improve scrolling performance on mobile */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Fix for iOS input zoom */
+@media screen and (max-width: 768px) {
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"] {
+    font-size: 16px !important;
+  }
+}
+
+/* Landscape mode optimization for mobile */
+@media (max-width: 896px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+  
+  nav {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    background-color: #FAFAFA;
+    color: #111111;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+  }
+  p, span, div {
+    color: #111111;
+  }
+}
+/* Force override for heritage-forest text to use black instead of green */
+.text-heritage-forest,
+.text-heritage-forest\/80,
+.text-heritage-forest\/70 {
+  color: #111111 !important;
+}
+/* Force override for specific white text areas */
+.bg-\[\#1D4E38\] h1, 
+.bg-\[\#1D4E38\] p, 
+.bg-\[\#1D4E38\] span,
+.bg-\[\#1A1A1A\] h1,
+.bg-\[\#1A1A1A\] p,
+.bg-\[\#1A1A1A\] span,
+.bg-heritage-forest h1,
+.bg-heritage-forest p,
+.bg-heritage-forest span,
+.text-white {
+  color: #ffffff !important;
 }
