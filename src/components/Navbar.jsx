@@ -33,28 +33,28 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-700 ease-in-out ${
+    <nav className={`fixed w-full top-0 z-50 py-3 md:py-4 ${
       isScrolled 
-        ? 'bg-heritage-ivory/90 backdrop-blur-xl border-b border-heritage-champagne/40 py-3 md:py-4' 
-        : 'bg-[#1D4E38]/90 backdrop-blur-md py-3 md:py-4'
+        ? 'bg-heritage-ivory/90 backdrop-blur-xl border-b border-heritage-champagne/40' 
+        : 'bg-[#1D4E38]/90 backdrop-blur-md'
     }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-2 md:mt-3">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-full min-h-[60px] md:min-h-[72px]">
           {/* PREMIUM LUXURY LOGO */}
-          <Link to="/" className="flex items-baseline group flex-shrink-0">
-            <h1 className={`text-xl md:text-2xl font-serif font-light tracking-[0.2em] uppercase leading-none transition-colors duration-700 ${
+          <Link to="/" className="flex items-center group flex-shrink-0">
+            <h1 className={`text-2xl md:text-xl lg:text-2xl font-serif font-light tracking-[0.08em] md:tracking-[0.2em] uppercase leading-none transition-colors duration-700 ${
               isScrolled ? 'text-[#1D4E38]' : 'text-white'
             }`}>
-              <span className={`relative -top-[4px] transition-colors duration-700 ${
+              <span className={`relative -top-[2px] md:-top-[4px] transition-colors duration-700 ${
                 isScrolled ? 'text-black' : 'text-white'
               }`}>4</span> Man Fabrics
             </h1>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-end flex-1 ml-8">
-            <div className="flex items-center gap-6 xl:gap-10">
+          <div className="hidden lg:flex items-center justify-end flex-1 ml-8 h-full">
+            <div className="flex items-center gap-6 xl:gap-10 h-full">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.path}
