@@ -35,24 +35,26 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-700 ease-in-out ${
       isScrolled 
-        ? 'bg-heritage-ivory/95 backdrop-blur-xl border-b border-heritage-champagne/40 py-3 md:py-4' 
-        : 'bg-[#1D4E38] py-4 md:py-6'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        ? 'bg-heritage-ivory/90 backdrop-blur-xl border-b border-heritage-champagne/40 py-3 md:py-4' 
+        : 'bg-[#1D4E38]/90 backdrop-blur-md py-3 md:py-4'
+    }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-2 md:mt-3">
         <div className="flex items-center justify-between">
           {/* PREMIUM LUXURY LOGO */}
-          <Link to="/" className="flex items-baseline group">
-            <h1 className={`text-2xl md:text-3xl font-serif font-light tracking-[0.3em] uppercase leading-none transition-colors duration-700 ${
+          <Link to="/" className="flex items-baseline group flex-shrink-0">
+            <h1 className={`text-xl md:text-2xl font-serif font-light tracking-[0.2em] uppercase leading-none transition-colors duration-700 ${
               isScrolled ? 'text-[#1D4E38]' : 'text-white'
             }`}>
-              <span className={`relative -top-[5px] transition-colors duration-700 ${
+              <span className={`relative -top-[4px] transition-colors duration-700 ${
                 isScrolled ? 'text-black' : 'text-white'
               }`}>4</span> Man Fabrics
             </h1>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-10">
+          <div className="hidden lg:flex items-center justify-end flex-1 ml-8">
+            <div className="flex items-center gap-6 xl:gap-10">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.path}
@@ -74,6 +76,7 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             ))}
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
