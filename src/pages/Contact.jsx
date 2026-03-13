@@ -264,17 +264,16 @@ const Contact = () => {
 
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Map Placeholder */}
+              {/* Interactive Map */}
               <div className="bg-heritage-sage rounded-lg overflow-hidden border border-[#E5E7EB] hover:border-heritage-champagne transition-all duration-500 h-96">
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-heritage-sage to-heritage-ivory">
-                  <div className="text-center">
-                    <div className="flex justify-center mb-4">
-                      <MapPin size={64} className="text-gray-400" />
-                    </div>
-                    <p className="text-heritage-forest font-semibold">Interactive Map</p>
-                    <p className="text-heritage-forest/70 text-sm">Loading location...</p>
-                  </div>
-                </div>
+                <iframe
+                  title="4-Man-Fabrics Store Location"
+                  src="https://www.google.com/maps?q=4%20Man%20Fabrics%2C%20Rajkot&output=embed"
+                  className="w-full h-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
 
               {/* Store Information */}
@@ -298,6 +297,18 @@ const Contact = () => {
                     <p className="text-heritage-forest/80"><Phone size={16} className="inline mr-1" /> <a href="tel:+919913323064" className="text-heritage-champagne hover:text-heritage-forest hover:underline transition-colors duration-500">+91 99133 23064</a></p>
                     <p className="text-heritage-forest/80"><Mail size={16} className="inline mr-1" /> <a href="mailto:4manfabrics@gmail.com" className="text-heritage-champagne hover:text-heritage-forest hover:underline transition-colors duration-500">4manfabrics@gmail.com</a></p>
                     <p className="text-heritage-forest/80"><Clock size={16} className="inline mr-1" /> Mon-Sat: 10AM-8PM</p>
+                  </div>
+
+                  <div>
+                    <a
+                      href="https://www.google.com/maps/place/4+Man+Fabrics/@22.2972626,70.8033432,870m/data=!3m2!1e3!5s0x3959ca0449668aad:0x8cdca7271cb7b32!4m6!3m5!1s0x3959ca040258ea87:0xaf491bfa6d526009!8m2!3d22.2974196!4d70.8061584!16s%2Fg%2F11cm3w2_26?authuser=0&entry=ttu&g_ep=EgoyMDI2MDMxMC4wIKXMDSoASAFQAw%3D%3D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-heritage-champagne text-heritage-forest hover:bg-heritage-champagne/20 transition-colors duration-300"
+                    >
+                      <MapPin size={16} />
+                      Open in Google Maps
+                    </a>
                   </div>
                 </div>
               </div>
