@@ -29,6 +29,27 @@ const Wardrobe = () => {
     { name: 'Raw Silk', icon: Feather, description: 'Premium natural fiber' },
   ];
 
+  const featuredProducts = [
+    {
+      id: 1,
+      title: 'Premium Fabric Collection',
+      description: 'Explore our exquisite range of premium fabrics',
+      image: '/gallery/featured/1.jpeg',
+    },
+    {
+      id: 2,
+      title: 'Signature Fabric Collection',
+      description: 'Crafted for timeless style and everyday elegance',
+      image: '/gallery/featured/2.jpeg',
+    },
+    {
+      id: 3,
+      title: 'Luxury Fabric Collection',
+      description: 'Handpicked textures for refined wardrobe essentials',
+      image: '/gallery/featured/3.jpeg',
+    },
+  ];
+
   return (
     <motion.div 
       className="min-h-screen bg-heritage-ivory"
@@ -138,19 +159,24 @@ const Wardrobe = () => {
           </div>
           
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
+            {featuredProducts.map((item) => (
               <motion.div 
-                key={item} 
+                key={item.id}
                 className="bg-heritage-ivory rounded-lg overflow-hidden border border-heritage-champagne hover:border-heritage-champagne transition-all duration-500"
                 whileHover={{ y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="h-64 bg-gradient-to-br from-heritage-sage to-heritage-champagne flex items-center justify-center">
-                  <Binary size={64} className="text-heritage-forest" />
+                <div className="h-64 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-heritage-forest">Premium Fabric Collection</h3>
-                  <p className="text-heritage-forest/80">Explore our exquisite range of premium fabrics</p>
+                  <h3 className="text-xl font-bold mb-2 text-heritage-forest">{item.title}</h3>
+                  <p className="text-heritage-forest/80">{item.description}</p>
                 </div>
               </motion.div>
             ))}

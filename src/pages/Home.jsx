@@ -194,8 +194,8 @@ const Home = () => {
             >
               <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
                 <motion.img
-                  src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80"
-                  alt="Craftsmanship"
+                  src="public\gallery\about\ankur-jain.jpg"
+                  alt="Ankur Jain - Founder of 4 Man Fabrics"
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
